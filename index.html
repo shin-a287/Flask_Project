@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Заметки</h1>
+<form method="post" action="{{ url_for('add_note') }}">
+  <input name="text" placeholder="Новая заметка" required>
+  <button type="submit">Добавить</button>
+</form>
+<ul>
+  {% for note in notes %}
+    <li>{{ note }}</li>
+  {% else %}
+    <li class="empty">Пока нет заметок</li>
+  {% endfor %}
+</ul>
+{% endblock %}
